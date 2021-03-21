@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset= "UTF-8">
+    <title>Javasript Cheat Sheet</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css"/>    
+</head>
+
+<body>
+    <header>
+        <h1 class="page-title">
+          Javascript Snippet Cheatsheet
+        </h1>
+        <p>
+            Ever have trouble recalling the exact syntax for your favorite Javascript code? Give it a permanent home and add it to
+            this page! Select any snippet below and it'll automatically select all of the code for you to copy.
+        </p>
+    </header>
+
+    <main class="row">
+        
+            <div class="card">
+                <h2>For Loop</h2>
+                
+                <p class="card-body">
+                    if you want to run the same code over and over again, each time with a different value.
+                </p>
+                <pre class="code-block"><code>
+  for (var i = 0; i < myArray.length; i++) { 
+    console.log("I am going to zoo to see " + myArray[i] + ".");
+  }
+    </code></pre>
+            </div>
+
+            <div class="card">
+                <h2>Random Choice</h2>    
+                <p class="card-body">
+                   Use this to choose a random element from an array
+                </p>
+                <pre class="code-block"><code>
+  var index = Math.floor(Math.random() * options.length);
+  var selectedOption = options[index];
+                           
+                    
+    
+    </code></pre>
+            </div>
+           
+            <div class="card">
+                <h2>Accessing Elements in HTML</h2>
+                <p class="card-body">
+                   Access HTML and make changes
+                </p>
+                <pre class="code-block"><code>
+   
+  let specificDiv = document.getElementById("specific");
+
+  var imgEl = document.querySelectorAll("img");
+
+  var pTags = document.querySelectorAll("p");      
+
+  var changeP = document.querySelector("#ID");
+    
+
+  </code></pre>
+            </div>
+        
+            <div class="card">
+                <h2>Set attributes</h2>
+                <p class="card-body">
+                    Make changes to HTML elements that have already been accessed.
+                </p>
+                <pre class="code-block"><code>
+     
+  specificDiv.children[0].style.fontSize = "50px";  
+
+  imgEl[0].setAttribute("src", "./assets/images/image_1.png");
+
+  pTags[0].setAttribute("style", "font-size: 40px;");
+                   
+  changeP.setAttribute("style", "font-size: 25px;")
+    
+                    </code></pre>
+            </div>
+           
+            <div class="card">
+                <h2> Store User Response</h2>
+                <p class="card-body">
+                    Use to create element from user response to add text and append tag as a child of the document body
+                </p>
+                <pre class="code-block"><code>
+  var tagName = prompt("Please enter an HTML Tag (ex. h1, h2);
+
+  if (tagName !== "h1" && tagName !== "h2") {
+     alert("please enter a valid tag");
+
+  }else {
+     var tag = document.createElement(tagName);
+
+     tag.textContent = "This is a " + tagName + ".";
+
+     document.body.appendChild(tag);
+  }
+                    
+    </code></pre>
+            </div>
+            
+            <div class="card">
+                <h2>Timer</h2>
+                <p class="card-body">
+                   Use to create a countdown timer
+                </p>
+                <pre class="code-block"><code>
+  function countdown() {
+  var timeLeft = 5;
+
+  var timeInterval = setInterval(function () {
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft + ' seconds remaining';
+      timeLeft--;
+    }
+      else if (timeLeft === 1) {
+      timerEl.textContent = timeLeft + ' second remaining';
+      timeLeft--;
+    }
+      else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+      displayMessage();
+    }
+  }, 1000);
+    
+      </code></pre>
+              </div>
+  
+              <div class="card">
+                  <h2>Intervals</h2>    
+                  <p class="card-body">
+                    Uses the `setInterval()` method to call a function to be executed every 1000 milliseconds
+                  </p>
+                  <pre class="code-block"><code>
+                   
+    function displayMessage() {
+    var wordCount = 0;
+                    
+    var msgInterval = setInterval(function () {
+        if (words[wordCount] === undefined) {
+            clearInterval(msgInterval);
+        } else {
+            mainEl.textContent = words[wordCount];
+            wordCount++;
+        }}, 1000);
+        }
+      </code></pre>
+              </div>
+             
+              <div class="card">
+                  <h2>Event Listener</h2>
+                  <p class="card-body">
+                     Use Event listener to call a function.
+                  </p>
+                  <pre class="code-block"><code>
+     
+  var themeSwitcher = document.querySelector("#theme-switcher");
+  var container = document.querySelector(".container");
+  var mode = "dark";
+                    
+  themeSwitcher.addEventListener("click", function() {;
+    if (mode === "dark") {
+        mode = "light";
+        container.setAttribute("class", "light");
+    }else {
+        mode = "dark";
+        container.setAttribute("class", "dark");
+    }});
+                    
+    </code></pre>
+  </div>
+             
+  <div class="card">
+      <h2>Keydown event</h2>
+      <p class="card-body">
+         Use Event listener to call a function.
+      </p>
+      <pre class="code-block"><code>
+        // Keydown event
+        textAreaEl.addEventListener("keydown", function(event) {
+          // Access value of pressed key with key property
+          var key = event.key.toUpperCase();
+          var alphabetNumericCharacters = 
+          "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+          if (alphabetNumericCharacters.includes(key)) {
+            elements.forEach(function(element) {
+              element.textContent += event.key;
+            });
+          }
+        });
+
+</code></pre>
+
+
+
+
+    </main>
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>
